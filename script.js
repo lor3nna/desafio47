@@ -65,3 +65,59 @@ for (i = 0; i < tr.length; i++) {
   }
 }
 }
+
+
+
+//PARTE EXTRA
+function addSearchBar() {
+  // cria um array com as letras do alfabeto
+  const alphabet = Array.from(Array(26)).map((_, i) => String.fromCharCode(i + 65));
+
+  // cria um container para o índice alfabético
+  const indexContainer = document.createElement('div');
+  indexContainer.className = 'index-container';
+
+  // cria um botão para mostrar todas as linhas
+  const allButton = document.createElement('button');
+  allButton.innerText = 'TODOS';
+  allButton.onclick = () => filterTable('');
+
+  // adiciona o botão ao container
+  indexContainer.appendChild(allButton);
+
+  // adiciona um botão para cada letra do alfabeto
+  alphabet.forEach(letter => {
+    const button = document.createElement('button');
+    button.innerText = letter;
+    button.onclick = () => filterTable(letter);
+
+    indexContainer.appendChild(button);
+  });
+
+  // adiciona o container antes da tabela
+  const table = document.querySelector('table');
+  table.parentNode.insertBefore(indexContainer, table);
+
+  function filterTable(letter) {
+    // seleciona todas as linhas da tabela
+    const rows = document.querySelectorAll('table tr');
+
+    // verifica se a letra é uma letra válida
+    if (alphabet.includes(letter)) {
+      // itera sobre as linhas e mostra apenas aquelas que começam com a letra clicada
+      rows.forEach(row => {
+        const firstLetter = row.cells[2].innerText.charAt(0).toUpperCase();
+        if (firstLetter === letter) {
+          row.classList.remove('hidden');
+        } else {
+          row.classList.add('hidden');
+        }
+      });
+    } else {
+      // exibe todas as linhas da tabela
+      rows.forEach(row => {
+        row.classList.remove('hidden');
+      });
+    }
+  }
+}
