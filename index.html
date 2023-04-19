@@ -19,7 +19,19 @@
     <input type="text" id="myInput" onkeyup="filterTable()" placeholder="Pesquisar pelo nome da equipe...">
     </div>
 
+    <br>
+
+    <div id="index-container"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addSearchBar();
+        });
+      </script>
+
+      <br>
+
     <table>
+        <br>
         <tr>
             <th onclick="sortTable(0)" style="cursor:pointer;">Posição &#x2195;</th>
             <th onclick="sortTable(1)" style="cursor:pointer;">Logotipo &#x2195;</th>
@@ -183,7 +195,7 @@
         <tr>
             <td>11</td>
             <td><img src="logotipos/Phytomancers.png" alt="Phytomancers" class="logo"></td>
-            <td></td>
+            <td>.</td>
             <td>TADS</td>
             <td title="1,46">3</td>
             <td> 0,63 </td>
