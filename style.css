@@ -2,6 +2,36 @@
     margin-bottom: 20px;
   }
 
+  /* Estilizando o container do índice */
+.index-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Estilizando os botões do índice */
+.index-container button {
+  margin: 0 5px;
+  font-size: 16px;
+  background-color: #eee;
+  color: #333;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Estilizando o botão 'TODOS' */
+.index-container button:first-child {
+  font-weight: bold;
+}
+
+/* Estilizando o botão ativo */
+.index-container button.active {
+  background-color: #333;
+  color: #fff;
+}
+
    .arrow-up {
     display: inline-block;
     width: 0;
