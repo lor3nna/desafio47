@@ -54,8 +54,9 @@
     vertical-align: middle;
   }
   
-  input[type=text] {
+input[type=text] {
     padding: 12px 20px;
+    width: 100%;
     margin: 8px 0;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -63,6 +64,18 @@
     font-size: 16px;
     background-color: white;
   }
+  
+  h1 {
+    text-align: center; /* centraliza o texto horizontalmente */
+    font-size: 36px; /* tamanho da fonte */
+    font-weight: bold; /* negrito */
+    color: #333; /* cor do texto */
+    text-transform: uppercase; /* transforma o texto em letras maiúsculas */
+    letter-spacing: 2px; /* espaçamento entre as letras */
+    margin-top: 20px; /* espaçamento acima do título */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
   
   table {
       border-collapse: collapse;
