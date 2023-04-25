@@ -2,17 +2,30 @@
 //Função Ordena as colunas da Tabela 
 
 function sortTable(n) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementsByTagName("table")[0];
-    switching = true;
-    dir = "asc";
-    while (switching) {
-      switching = false;
-      rows = table.rows;
-      for (i = 1; i < (rows.length - 1); i++) {
-        shouldSwitch = false;
-        x = rows[i].getElementsByTagName("td")[n];
-        y = rows[i + 1].getElementsByTagName("td")[n];
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementsByTagName("table")[0];
+  switching = true;
+  dir = "asc";
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("td")[n];
+      y = rows[i + 1].getElementsByTagName("td")[n];
+      if (n == 0 || n == 4 || n == 5) {
+        if (dir == "asc") {
+          if (parseFloat(x.innerHTML.replace(",", ".")) > parseFloat(y.innerHTML.replace(",", "."))) {
+            shouldSwitch = true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (parseFloat(x.innerHTML.replace(",", ".")) < parseFloat(y.innerHTML.replace(",", "."))) {
+            shouldSwitch = true;
+            break;
+          }
+        }
+      } else {
         if (dir == "asc") {
           if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
             shouldSwitch = true;
@@ -25,18 +38,20 @@ function sortTable(n) {
           }
         }
       }
-      if (shouldSwitch) {
-        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchcount ++;
+    } else {
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
         switching = true;
-        switchcount ++;
-      } else {
-        if (switchcount == 0 && dir == "asc") {
-          dir = "desc";
-          switching = true;
-        }
       }
     }
   }
+}
+
 
 
 
